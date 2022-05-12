@@ -1,0 +1,98 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Gestion des Reclamations{% endblock %}
+
+{% block body %}
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td,
+        th {
+            border: 0px solid black;
+            border-collapse: collapse;
+            text-align: left;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/49b98aaeb5.js"></script>
+    <!-- End -->
+
+<br>
+<br>
+<br>
+<div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor"> <i class="fa fa-comments fa-1.2x" aria-hidden="true" style="color:#6495ed"></i>  Gérer les Reclamations </h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <a href="{{ path('excel') }}" class="btn waves-effect waves-light btn-outline-success pull-right hidden-sm-down" style="color: blue">
+                <i class="fa fa-file-excel-o fa-1.2x" aria-hidden="true" style="color:#6495ed"></i>
+                Excel</a>
+        </div>
+
+</div>
+    {% for r in reclamation  %}
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title"><span class="lstick"></span> Referance de Reclamation: {{r.ReclamationId}}
+                        </h4>
+                    </div>
+                </div>
+
+
+                <table class="table">
+                    <tr>
+                        <th><b>De </b></th>
+                        <th><b>Terrain  </b></th>
+                        <th style="text-valign:middle;"><b>Contenu   </b></th>
+                        <th><b>Action </b></th>
+
+                     <tbody>
+
+                        <td>{{r.Fkutilisateur}}</td>
+                        <td> {{ r.FkterrainRecId}}</td>
+                        <td style="text-valign:middle;">{{r.Contenu}}</td>
+                        <td>
+                            <a
+                                    class="btn waves-effect waves-light btn-info hidden-md-down text-white"
+                                    class="btn btn-danger" href="{{ path('suppp',{'idreclamation': r.ReclamationId}) }}">
+                                <i
+                                        class="mdi mdi-delete-empty"></i>
+                            </a>
+
+                            <a
+                                    class="btn waves-effect waves-light btn-info hidden-md-down text-white"
+                                    class="btn" href="{{ path('modifier', {'id':r.ReclamationId}) }}">
+
+
+                                <i
+                                        class="mdi mdi-account-edit"></i>
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                     </tbody>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+        {%endfor %}
+
+{% endblock %}

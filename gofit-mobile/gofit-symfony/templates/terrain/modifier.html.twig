@@ -1,0 +1,95 @@
+{% extends 'base-front.html.twig' %}
+
+    {% block body %}
+
+        <div class="breadcrumb-section breadcrumb-bg-color--golden">
+            <div class="breadcrumb-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="breadcrumb-title">Terrain</h3>
+                            <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                                <nav aria-label="breadcrumb">
+                                    <ul>
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li class="active" aria-current="page">Terrain</li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {{ form_start(fmod) }}
+            <center><h1>Espace des terrains</h1></center>
+            <br>
+            <div class="row">
+                <form class="col s12">
+
+                    <div class="row">
+
+                        <div class="input-field col s6">
+                            {{ form_label(fmod.nomTerrain) }}
+                            {{ form_widget(fmod.nomTerrain) }}
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{ form_label(fmod.description) }}
+                            {{ form_widget(fmod.description) }}
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{ form_label(fmod.region) }}
+                            {{ form_widget(fmod.region) }}
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{ form_label(fmod.activitie) }}
+                            {{ form_widget(fmod.activitie) }}
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                {{ form_label(fmod.contact) }}
+                                {{ form_widget(fmod.contact) }}
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {{ form_label(fmod.prix) }}
+                                    {{ form_widget(fmod.prix) }}
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        {{ form_label(fmod.image) }}
+                                        {{ form_widget(fmod.image) }}
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    <br><br>
+                                    <br>
+
+                                    <center>{{ form_end(fmod) }}</center>
+                                    <br>
+                                    <br>
+                                    <br><br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+    {% endblock %}

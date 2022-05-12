@@ -1,0 +1,39 @@
+
+{% extends 'base-back.html.twig' %}
+{% block body %}
+
+        <script>
+            window.onload = function() {
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    title: {
+                        text: "Statistique de site GoFit"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 240,
+                        yValueFormatString: "##0",
+                        indexLabel: "{label} {y}",
+                        dataPoints: [
+                            {y: {{ rep1|length }}, label: "Utilisateur"},
+                            {y: {{ rep4 |length }}, label: "Reclamation"},
+                            {y: {{ rep3 |length }}, label: "Terrain"},
+                            {y: {{ rep2 |length }}, label: "Actualité"},
+                            {y: {{ rep5 |length }}, label: "Produits"} ,
+                            {y: {{ rep6 |length }}, label: "Boutique"}
+                        ]
+                    }]
+                });
+                chart.render();
+
+            }
+        </script>
+    </head>
+    <body>
+    <div id="chartContainer" style="height: 600px; width: 500%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </body>
+    </html>
+
+{% endblock %}

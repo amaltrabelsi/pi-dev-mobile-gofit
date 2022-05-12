@@ -1,0 +1,41 @@
+{% extends 'front-back.html.twig' %}
+
+    <div class="product-details-section">
+        <div class="container">
+
+            <div class="row">
+                <!-- Start Sort Wrapper Box -->
+                <!-- Start Sort tab Button -->
+
+
+
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+
+
+                            <h4 class="title">{{ detail.Utilisateur_Id }}</h4>
+                            <div class="d-flex align-items-center">
+                                {#          you can use this to rate the products yaani for 1..5 do its easy                      #}
+                                <ul class="review-star">
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="empty"><i class="ion-android-star"></i></li>
+                                </ul>
+
+                            </div>
+                <p> numero :{{ detail.numero }} </p>
+                            <p>email: {{ detail.email }}</p>
+                        </div> <!-- End  Product Details Text Area-->
+                        <!-- Start Product Variable Area -->
+        </div></div>
+
+
+
+{% endblock %}

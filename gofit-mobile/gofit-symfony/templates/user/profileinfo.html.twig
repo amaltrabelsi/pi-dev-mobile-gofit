@@ -1,0 +1,67 @@
+{% extends 'base-front.html.twig' %}
+
+
+
+{% block body %}
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{ asset('profileinfo/style.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+    <div class="profile-card js-profile-card">
+        <div class="profile-card__img">
+            <img src="https://thumbs.dreamstime.com/b/avatar-gold-icon-vector-illustration-golden-particle-background-isolated-vector-sign-symbol-education-icon-black-background-168665057.jpg" alt="profile card">
+        </div>
+
+        <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name"> Email : {{ app.user.email }}</div>
+            <div class="profile-card__txt"> Contact: <strong>{{ app.user.num }}</strong></div>
+          <div class="profile-card-inf">
+
+            <div class="profile-card-social">
+
+                <a href="#" class="profile-card-social__item facebook" target="_blank" ><i class="fa fa-shopping-bag fa-1x" aria-hidden="true" style="color:grey" title="Boutiques"> </i>  </a> </a>
+                <a href="#"  class="profile-card-social__item facebook" target="_blank" ><i class="fa fa-newspaper-o fa-1x" aria-hidden="true" style="color:grey" title="Actualités"> </i>  </a> </a>
+                <a href="{{ path('terrainacc') }}" class="profile-card-social__item facebook" target="_blank" ><i class="fa fa-futbol-o fa-1x" aria-hidden="true" style="color:grey" title="Terrains"> </i>  </a> </a>
+            </div>
+          </div>
+
+                </a>
+                <div class="profile-card-ctr">
+                {% for role in app.user.roles %}
+                    {% if role=="ROLE_ADMIN" %}
+                        <a href="{{ path('Affichestat') }}" class="profile-card__button button--orange" target="_blank"  > Espace Admin </a>
+                    {% elseif role=="ROLE_VENDEUR" %}
+                        <a href="#" class="profile-card__button button--orange" target="_blank"  > Espace Vendeur </a>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <a href="{{ path('modifierquoi') }}" class="profile-card__button button--orange" target="_blank" > Modifier Profil</a></a>
+            </div>
+       <div class="profile-card-ctr">
+          <a href="{{ path('app_logout') }}" class="profile-card__button button--orange" target="_blank"  > Déconnexion </a>
+
+       </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- partial -->
+<script  src="{{ asset('profileinfo/script.js')}}"></script>
+    </div>
+</div>
+</body>
+
+{% endblock%}

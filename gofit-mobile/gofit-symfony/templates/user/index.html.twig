@@ -1,0 +1,50 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href={{ asset('message/images/icons/favicon.ico')}}>
+    <link rel="stylesheet" type="text/css" href={{ asset('message/vendor/bootstrap/css/bootstrap.min.css')}}>
+   <link rel="stylesheet" type="text/css" href={{ asset('message/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}>
+
+	<link rel="stylesheet" type="text/css" href={{ asset('message/vendor/animate/animate.css')}}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{ asset('message/vendor/css-hamburgers/hamburgers.min.css')}}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{ asset('message/vendor/select2/select2.min.css')}}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{ asset('message/css/util.css')}}>
+	<link rel="stylesheet" type="text/css" href={{ asset('message/css/main.css')}}>
+<!--===============================================================================================-->
+</head>
+<body>
+
+<center>
+<img src={{ asset('bienvenue.png') }}>
+</center>
+<!--===============================================================================================-->
+	<script src={{ asset('message/vendor/jquery/jquery-3.2.1.min.js')}}></script>
+
+	<script src={{ asset('message/vendor/bootstrap/js/popper.js')}}></script>
+	<script src="{{ asset('message/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
+	<script src={{ asset('message/vendor/select2/select2.min.js')}}></script>
+
+	<script src={{ asset('message/vendor/tilt/tilt.jquery.min.js')}}></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ asset('message/js/main.js')}}"></script>
+
+</body>
+</html>
+{% endblock %}

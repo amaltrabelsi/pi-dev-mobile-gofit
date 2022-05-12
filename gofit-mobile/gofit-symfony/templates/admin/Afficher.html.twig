@@ -1,0 +1,100 @@
+{% extends 'base-back.html.twig' %}
+
+
+
+{% block title %}Gestion des utilisateurs{% endblock %}
+
+{% block body %}
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/49b98aaeb5.js"></script>
+    <!-- End -->
+
+
+
+    <script src="https://use.fontawesome.com/49b98aaeb5.js"></script>
+    <!-- End -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor"> <i class="fa fa-user fa-1.2x" aria-hidden="true" style="color:#6495ed"></i> Gérer les utilisateurs</h3>
+        </div>
+
+    </div>
+
+    {% for u in utilisateur  %}
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                      <table class="table">
+                            <tr>
+                                <th><b>Id Utilisateur </b></th>
+                                <th style="text-valign:middle;"><b>Email  </b></th>
+                                <th><b>Rôle </b></th>
+                                <th><b>Numéro </b></th>
+                                <th><center><b>Etat Compte</b></center></th>
+                                <th><b>Action </b></th>
+                          </tr >
+
+                                <tbody>
+                                <td> {{u.UtilisateurId}} </td>
+                                <td style="text-valign:middle;">{{u.email}}</td>
+
+                                <td> {% for role in u.roles %}
+                                        {% if role=="ROLE_USER" %}
+                                            Utilisateur
+                                        {% elseif role=="ROLE_VENDEUR" %}
+                                            VENDEUR
+                                        {% elseif role=="ROLE_ADMIN" %}
+                                            Administrateur
+                                        {% endif %}
+                                    {% endfor %}</td>
+                                <td>{{ u.num }}</td>
+                                <td>
+                                    {% for activetoken in u.activation_token %}
+                                        {% if activetoken is  null %}
+                                            Compte Activé
+                                        {% else %}
+                                            Compte désactivé
+                                        {% endif %}
+
+                                    {% endfor %}
+                                </td>
+
+                                <td>
+                                    <a
+                                            class="btn waves-effect waves-light btn-info hidden-md-down text-white"
+                                            class="btn btn-danger" href="{{ path('supp',{'id_utilisateur': u.UtilisateurId}) }}">
+                                        <i
+                                                class="mdi mdi-delete-empty"></i>
+                                    </a>
+
+
+                                </td>
+
+                                </tr>
+
+                                </tbody>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </table>
+
+    {%endfor %}
+
+            {% endblock %}

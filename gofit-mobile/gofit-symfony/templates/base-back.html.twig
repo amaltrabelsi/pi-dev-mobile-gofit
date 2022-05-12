@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Admin-Pro lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Admin-Pro lite design, Admin-Pro lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+          content="Admin-Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>GoFit |Administration  </title>
+
+    <link href="{{asset('back-office/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/assets/plugins/chartist-js/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/css/pages/dashboard.css')}}" rel="stylesheet">
+    <link href="{{asset('back-office/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
+    <script src="{{ asset('back-office/assets/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('back-office/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('back-office/js/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{asset('back-office/js/waves.js') }}"></script>
+    <script src="{{asset('back-office/js/sidebarmenu.js')}}"></script>
+    <script src="{{asset('back-office/js/custom.min.js')}}"></script>
+    <script src="{{asset('back-office/assets/plugins/chartist-js/dist/chartist.min.js')}}"></script>
+    <script src="{{asset('back-office/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')}}"></script>
+    <script src="{{asset('back-office/assets/plugins/d3/d3.min.js')}}"></script>
+    <script src="{{asset('back-office/assets/plugins/c3-master/c3.min.js')}}"></script>
+    <script src="{{asset('back-office/js/dashboard.js')}}"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">GoFit</p>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <div class="logo">
+                        <img src="{{ asset('/logo.png') }}" alt="homepage" class="dark-logo" width="70px" height="70px"  /></div>
+
+                </a>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                                             href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                </ul>
+                <ul class="navbar-nav my-lg-0">
+                    <li class="nav-item hidden-xs-down search-box"> <a
+                                class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
+                                    class="ti-search"></i></a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-dark" href="{{ path('profilinfo') }}"><img src="https://thumbs.dreamstime.com/b/avatar-gold-icon-vector-illustration-golden-particle-background-isolated-vector-sign-symbol-education-icon-black-background-168665057.jpg"
+                                                                                  alt="user" class="profile-pic" /></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside class="left-sidebar">
+        <div class="scroll-sidebar">
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li> <a class="waves-effect waves-dark" href="{{path('Affichestat')}}" aria-expanded="false"><i
+                                    class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                    <li> <a class="waves-effect waves-dark" href="{{ path('profilinfo') }}" aria-expanded="false"><i
+                                    class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a></li>
+
+                                <li class="has-dropdown">
+                                    <a class="waves-effect waves-dark"  aria-expanded="false"> <i
+                                                class="mdi mdi-table"></i><span class="hide-menu"></i>Gestion des tables</span>
+                                      </a>
+                                    <!-- Sub Menu -->
+                                    <ul class="sub-menu">
+                                        <li><a href="{{ path('Affiche') }}"> <i class="fa fa-user"></i>
+                                                Utilisateurs</a></li>
+                                        <li><a href="{{ path('AfficheRec') }}"> <i class="fa fa-comments "></i>  Reclamations</a></li>
+                                        <li><a href="{{ path('AfficheTer') }}"><i class="fa fa-futbol-o "> </i> Terrains</a></li>
+                                        <li><a href="{{ path('app_produit') }}"> <i class="fa fa-product-hunt "></i> Produits</a></li>
+                                        <li><a href="{{ path('app_business') }}"><i class="fa fa-shopping-bag "></i> Boutiques</a></li>
+                                        <li><a href="{{ path('app_actualite') }}"><i class="fa fa-newspaper-o "></i> Actualités</a></li>
+                                        <li><a href="{{ path('app_commande') }}"><i class="fa fa-money "></i> Commandes</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                </ul>
+
+                <div class="text-center mt-4">
+
+                    <a href="{{ path('mailer') }}" class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Envoyer Email</a>
+                </div>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+
+
+            <div class="row">
+
+                        {% block body %}
+
+
+
+
+
+                        {% endblock %}
+
+            </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer"> © 2022 Go Fit by The Five </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap popper Core JavaScript -->
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="js/perfect-scrollbar.jquery.min.js"></script>
+<!--Wave Effects -->
+<script src="js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="js/custom.min.js"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+</div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <head>
+        <meta charset="UTF-8">
+        <title>CodePen - Profile Card</title>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="{{ asset('profileinfo/style.css') }}">
+
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <div class="wrapper">
+        <div class="profile-card js-profile-card">
+            <div class="profile-card__img">
+                <img src="https://thumbs.dreamstime.com/b/avatar-gold-icon-vector-illustration-golden-particle-background-isolated-vector-sign-symbol-education-icon-black-background-168665057.jpg" alt="profile card">
+            </div>
+
+            <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name"> Email : {{ app.user.email }}</div>
+                <div class="profile-card__txt"> Contact: <strong>{{ app.user.num }}</strong></div>
+                <div class="profile-card-inf">
+
+                        <div class="profile-card-ctr">
+
+                            <a href="{{ path('users_pass_modifier') }}" class="profile-card__button button--orange" target="_blank"  > Modifier mot de passe </a>
+
+                            <a href="{{ path('users_profil_modifier') }}" class="profile-card__button button--orange" target="_blank" > Modifier Contact</a>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- partial -->
+            <script  src="{{ asset('profileinfo/script.js')}}"></script>
+        </div>
+    </div>
+    </body>
+
+{% endblock%}

@@ -1,0 +1,117 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block body %}
+    <style>
+        table {
+            table-layout: fixed;
+            width: 30%;
+            border-collapse: collapse;
+            border: 3px solid #fef5ef;
+        }
+
+        thead th:nth-child(1) {
+            width: 30%;
+        }
+
+        thead th:nth-child(2) {
+            width: 20%;
+        }
+
+        thead th:nth-child(3) {
+            width: 15%;
+        }
+
+        thead th:nth-child(4) {
+            width: 35%;
+        }
+
+        th, td {
+            padding: 20px;
+        }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #fef5ef;
+            border: none;
+            color: #131212;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+
+    <center>
+        <table width="10%" height="30%">
+
+
+            {{ form_start(registrationForm, {'attr': {'class': 'row'}}) }}
+            <tr >
+                <td width="50%">
+                    <center>
+                        <h1>Inscription</h1>
+                    </center>
+                </td>
+            </tr>
+            <br>
+            <tr >
+                <td width="50%">
+
+
+                    {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Adresse email'}}) }}
+                    <span class="error">{{ form_errors(registrationForm.email) }}</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td width="50%">
+
+                    {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                    <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="50%" align="left">
+                    {{ form_widget(registrationForm.num, {'attr': {'placeholder': '+216 xx xxx xxx'}}) }}
+                    <span class="error">{{ form_errors(registrationForm.num) }}</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="50%">
+
+                    {{ form_widget(registrationForm.captchaCode) }}
+                    <span class="error">{{ form_errors(registrationForm.captchaCode) }}</span>
+                </td>
+            </tr>
+            <tr>
+
+                <td align="center">
+
+                    <p style="color: red" > Si Vous un Vendeur vous devez cocher cette case</p>
+                    {{ form_widget(registrationForm.roles,{'attr':{'placeholder':''}}) }}
+                    <span class="error">{{ form_errors(registrationForm.roles) }}</span>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td width="50%" align="left">
+
+                    {{ form_row(registrationForm.agreeTerms) }}
+                </td>
+            </tr>
+            <tr>
+                <td width="50%">
+                    <input type="submit" name="" class="btn btn-primary" value="M'inscrire" color="">
+                </td>
+            </tr>
+
+            {{ form_end(registrationForm) }}
+
+        </table>
+        <br> <br> <br>
+    </center>
+
+{% endblock %}

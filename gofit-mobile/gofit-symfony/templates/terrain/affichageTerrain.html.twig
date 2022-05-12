@@ -1,0 +1,85 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Gestion des Terrains{% endblock %}
+
+{% block body %}
+
+    <script src="https://use.fontawesome.com/49b98aaeb5.js"></script>
+    <!-- End -->
+    <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor"> <i class="fa fa-futbol-o fa-1.2x" aria-hidden="true" style="color:#6495ed"></i> Gérer les terrains</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <a href="{{ path('Ajouterterrain') }}" class="btn waves-effect waves-light btn-danger
+                     pull-right hidden-sm-down"> Ajouter Terrain</a>
+    </div>
+</div>
+    {% for r in Terrain  %}
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div>
+                            <h4 class="card-title"><span class="lstick"></span>Terrain : Ref {{r.terrainId}}</h4>
+                        </div>
+                    </div>
+                        <table class="table">
+                        <tr>
+                            <th><b>Nom Terrain </b></th>
+                            <th style="text-valign:middle;"><b>Activité   </b></th>
+                            <th><b>Region </b></th>
+                            <th><b>Contact </b></th>
+                            <th><center><b>Prix </b></center></th>
+                            <th> <center><b>Image </b> </center></th>
+
+                            <th><b>Action </b></th>
+
+
+                            <tbody>
+
+                            <td> {{ r.nomTerrain }} </td>
+                            <td style="text-valign:middle;">{{r.activitie}}</td>
+
+                            <td>{{ r.region }}</td>
+                            <td>{{ r.contact }}</td>
+                            <td>{{ r.prix }} Dt</td>
+                            <td>  <center><img src="{{ asset('../uploads/images/' ~ r.image) }}" alt="" width="50%"
+                                height="50%"> </center></td>
+                            <td>
+                                <a
+                                        class="btn waves-effect waves-light btn-info hidden-md-down text-white"
+                                        class="btn btn-danger" href="{{ path('suppterrain',{'Idsupp': r.terrainId}) }}">
+                                    <i
+                                            class="mdi mdi-delete-empty"></i>
+                                </a>
+
+                                <a
+                                        class="btn waves-effect waves-light btn-info hidden-md-down text-white"
+                                        class="btn" href="{{ path('mod', {'Id': r.terrainId}) }}">
+
+
+                                    <i
+                                            class="mdi mdi-account-edit"></i>
+                                </a>
+
+                            </td>
+
+                            </tr>
+
+                            </tbody>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </table>
+
+    {%endfor %}
+{% endblock %}

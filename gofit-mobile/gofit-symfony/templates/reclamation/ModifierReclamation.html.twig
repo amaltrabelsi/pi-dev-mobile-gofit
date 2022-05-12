@@ -1,0 +1,61 @@
+{% extends 'base-front.html.twig' %}
+
+    {% block body %}
+
+        <div class="breadcrumb-section breadcrumb-bg-color--golden">
+            <div class="breadcrumb-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="breadcrumb-title">Reclamation</h3>
+                            <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                                <nav aria-label="breadcrumb">
+                                    <ul>
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li class="active" aria-current="page">Reclamation</li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {{ form_start(modifreclamation) }}
+            <center>
+                <h2>Espace des Réclamations</h2></center> <br>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="input-field col s6">
+                            {{ form_label(modifreclamation.Contenu) }}
+                            {{ form_widget(modifreclamation.Contenu) }}
+                        </div>
+                        <br>
+                        <br><br>
+                        <br>
+                    {% set formErrors = modifreclamation.vars.errors.form.getErrors(true)  %}
+
+                    {%  if formErrors|length %}
+
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for error in formErrors   %}
+                                <li>
+                                    {{ error.message }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                        <center>{{ form_end( modifreclamation) }}</center>
+                        <br>
+                        <br>
+                        <br>
+
+
+                </form>
+            </div>
+        </div>
+    {% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base-front.html.twig' %}
+
+
+
+{% block body %}
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="{{ asset('profileinfo/style.css') }}">
+
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <div class="wrapper">
+        <div class="profile-card js-profile-card">
+
+            <br><br><br>
+            <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card-ctr">
+
+                <a href="{{ path('app_register_vendeur') }}" class="profile-card__button button--orange" target="_blank" > Vous êtes Acheteur ? </a>
+                </div>
+                <div class="profile-card-ctr">
+                    <a href="{{ path('app_register') }}" class="profile-card__button button--orange" target="_blank"  > Vous êtes Vendeur ?  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script  src="{{ asset('profileinfo/script.js')}}"></script>
+
+    </body>
+
+{% endblock%}

@@ -1,0 +1,105 @@
+
+{% extends 'base-front.html.twig' %}
+{% block body %}
+
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">terrain</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-row="breadcrumb">
+                                <ul>
+                                    <li><a href="index.html">Accueil</a></li>
+                                    <li class="active" aria-current="page">terrain</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="some-custom-id">
+        <div class="form-control">
+        {{ form_start(ft) }}
+        <center><h1>Espace des terrains</h1></center>
+       <center>
+
+               <table style="width: 40%">
+                   <form class="col s12">
+                       <tr>
+                           <td >
+                         {{ form_row(ft.nomTerrain) }}
+                         {{ form_widget(ft.nomTerrain) }}
+                           </td>
+                       </tr>
+                       <tr>
+                           <td >
+                        {{ form_row(ft.description) }}
+                        {{ form_widget(ft.description) }}
+                               <br>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td >
+                        {{ form_row(ft.activitie) }}
+                        {{ form_widget(ft.activitie) }}
+                               <br>
+                           </td>
+                           </tr>
+                       <tr>
+                           <td >
+                        {{ form_row(ft.region) }}
+                        {{ form_widget(ft.region) }}
+                               <br>
+                           </td>
+                           </tr>
+                       <br><br>
+                       <tr>
+                           <td >
+                        {{ form_row(ft.contact) }}
+                        {{ form_widget(ft.contact) }}
+
+
+                           </td>
+                       </tr>
+                       <br>
+                       <tr>
+                           <td >
+                            {{ form_row(ft.prix) }}
+                            {{ form_widget(ft.prix) }}
+                               
+                           </td>
+                       </tr>
+                       <br>
+                       <tr>
+                           <td >
+                                {{ form_row(ft.image) }}
+                                {{ form_widget(ft.image) }}
+                               <br>
+                               <br>
+                               <br>
+                           </td>
+                           </tr>
+                       <tr>
+                           <td >
+                            <center>{{ form_end(ft) }}</center>
+                               <br>
+                               <br>
+                               <br>
+                           </td>
+                       </tr>
+
+
+
+
+
+            </form>
+               </table>
+        </center>
+    </div>
+    </div>
+
+{% endblock %}

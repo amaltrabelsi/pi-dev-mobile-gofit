@@ -1,0 +1,52 @@
+# Documentation on how to configure the bundle can be found at: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    resolvers:
+        default:
+            web_path: ~
+
+    filter_sets:
+        cache: ~
+
+        # the name of the "filter set"
+        produitfiltre:
+            # list of transformations to apply (the "filters")
+            filters:
+
+                # create a thumbnail: set size to 120x90 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail: { size: [350, 220], mode: outbound }
+
+                # create a 2px black border: center the thumbnail on a black background
+                # 4px larger to create a 2px border around the final image
+                background: { size: [354, 224], position: center, color: '#000000' }
+        actualite:
+            # list of transformations to apply (the "filters")
+            filters:
+                # create a thumbnail: set size to 120x90 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail: { size: [350, 220], mode: outbound }
+
+                # create a 2px black border: center the thumbnail on a black background
+                # 4px larger to create a 2px border around the final image
+                background: { size: [354, 224], position: center, color: '#000000' }
+                watermark:
+                    image: ../public/logo.png
+                    size: 0.3
+                    position: bottomright
+        actualiteindiv:
+            # list of transformations to apply (the "filters")
+            filters:
+                upscale:
+                    min: [ 690, 340 ]
+                    thumbnail:
+                        size: [ 690, 340 ]
+                        mode: outbound
+                # create a 2px black border: center the thumbnail on a black background
+                # 4px larger to create a 2px border around the final image
+                background: { size: [ 1000, 224 ], position: center, color: '#FFFFFF' }
+                watermark:
+                    image: ../assets/images/logo.png
+                    size: 0.1
+                    position: bottomright

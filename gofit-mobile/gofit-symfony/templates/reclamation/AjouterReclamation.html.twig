@@ -1,0 +1,59 @@
+
+{% extends 'base-front.html.twig' %}
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('notification/flashy.css') }}
+    <!-- Flashy depends on jQuery -->
+
+    <!-- Load Flashy default JavaScript -->
+    <script src="{{ asset('notification/flashy.js') }}"></script>
+    <!-- Include Flashy default partial -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Reclamation</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="index.html">Accueil</a></li>
+                                    <li class="active" aria-current="page">Reclamation</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {{ form_start(fr) }}
+        <center><h1>Espace des Reclamations</h1></center>
+        <br>
+<center>
+        <table style="width: 40%" >
+            <form class="col s12">
+                <tr>
+                    <td >
+                        {{ form_label(fr.Contenu , "Votre Reclamation") }}
+                        {{ form_widget(fr.Contenu) }}
+                        <br> <br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td >
+                <center>{{ form_end(fr) }}</center>
+                        <br> <br> <br>
+                    </td>
+                </tr>
+                <br>
+                <br>
+
+
+            </form>
+        </table>
+</center>
+    </div>
+
+{% endblock %}
